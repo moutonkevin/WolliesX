@@ -5,7 +5,7 @@ using Wollies.Contracts;
 
 namespace Wollies.Domain.Services.Sorting
 {
-    public class HighPriceProductSortingService : IProductSortingOptionService
+    public class HighPriceProductSortingService : IProductSortingOption
     {
         public SortingOption SortingOption => SortingOption.High;
 

@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Refit;
 using Wollies.Contracts;
 
-namespace Wollies.Domain.Clients
+namespace Wollies.Domain.ApiClients
 {
     public interface IShopperHistoryApiClient
     {

@@ -3,11 +3,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Wollies.Contracts;
-using Wollies.Domain.Clients;
+using Wollies.Domain.ApiClients;
 
 namespace Wollies.Domain.Services.Sorting
 {
-    public class RecommendedProductSortingService : IProductSortingOptionService
+    public class RecommendedProductSortingService : IProductSortingOption
     {
         public SortingOption SortingOption => SortingOption.Recommended;
 
@@ -22,6 +22,7 @@ namespace Wollies.Domain.Services.Sorting
 
         public async Task<IList<Product>> SortAsync(IList<Product> products)
         {
+            //TODO caching
             var shopperHistory = await _shopperHistoryApiClient.GetShopperHistoryAsync(_configuration["Token"]);
 
             var productsOrderedByPopularity = shopperHistory

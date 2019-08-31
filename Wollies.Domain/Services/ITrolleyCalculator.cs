@@ -2,7 +2,7 @@
 
 namespace Wollies.Domain.Services
 {
-    public interface ITrolleyCalculatorService
+    public interface ITrolleyCalculator
     {
         decimal CalculateLowestTotal(Trolley trolley);
     }

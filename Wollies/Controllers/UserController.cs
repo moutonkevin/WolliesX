@@ -18,6 +18,7 @@ namespace Wollies.Api.Controllers
         [HttpGet]
         public User Get()
         {
+            //TODO Logging / Monitoring
             return new User
             {
                 Name = _configuration["Name"],

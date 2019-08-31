@@ -4,7 +4,7 @@ using Wollies.Contracts;
 
 namespace Wollies.Domain.Services.Sorting
 {
-    public interface IProductSortingOptionService
+    public interface IProductSortingOption
     {
         SortingOption SortingOption { get; }
 

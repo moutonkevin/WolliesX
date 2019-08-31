@@ -8,9 +8,9 @@ namespace Wollies.Api.Controllers
     [ApiController]
     public class TrolleyController : ControllerBase
     {
-        private readonly ITrolleyCalculatorService _calculatorService;
+        private readonly ITrolleyCalculator _calculatorService;
 
-        public TrolleyController(ITrolleyCalculatorService calculatorService)
+        public TrolleyController(ITrolleyCalculator calculatorService)
         {
             _calculatorService = calculatorService;
         }
@@ -19,9 +19,8 @@ namespace Wollies.Api.Controllers
         [Route("trolleyTotal")]
         public decimal GetTotal(Trolley trolley)
         {
-            var total = _calculatorService.CalculateLowestTotal(trolley);
-
-            return total;
+            //TODO Logging / Validation / Monitoring
+            return _calculatorService.CalculateLowestTotal(trolley);
         }
     }
 }

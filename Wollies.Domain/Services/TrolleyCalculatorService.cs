@@ -4,7 +4,7 @@ using Wollies.Contracts;
 
 namespace Wollies.Domain.Services
 {
-    public class TrolleyCalculatorService : ITrolleyCalculatorService
+    public class TrolleyCalculatorService : ITrolleyCalculator
     {
         private bool IsSpecialActivated(IList<ProductQuantity> specialQuantities, IList<ProductQuantity> productQuantities)
         {
@@ -17,7 +17,7 @@ namespace Wollies.Domain.Services
             return true;
         }
 
-        public int ItemsLeftToProcess(IList<ProductQuantity> productQuantities)
+        public int ProductsLeftToProcess(IList<ProductQuantity> productQuantities)
         {
             return productQuantities.Sum(p => p.Quantity);
         }
@@ -39,18 +39,16 @@ namespace Wollies.Domain.Services
         {
             decimal total = 0;
 
-            while (ItemsLeftToProcess(trolley.Quantities) > 0)
+            while (ProductsLeftToProcess(trolley.Quantities) > 0)
             {
                 foreach (var special in trolley.Specials)
                 {
-                    var isSpecialActivated = IsSpecialActivated(special.Quantities, trolley.Quantities);
-                    if (isSpecialActivated)
+                    if (IsSpecialActivated(special.Quantities, trolley.Quantities))
                     {
                         foreach (var specialQuantity in special.Quantities)
                         {
                             DecreaseQuantityForProductName(trolley.Quantities, specialQuantity.Name, specialQuantity.Quantity);
                         }
-
                         total += special.Total;
                     }
                 }
@@ -59,8 +57,7 @@ namespace Wollies.Domain.Services
                 {
                     if (productQuantity.Quantity > 0)
                     {
-                        var productPrice = GetPriceFromProductName(trolley.Products, productQuantity.Name);
-                        total += productPrice;
+                        total += GetPriceFromProductName(trolley.Products, productQuantity.Name);
                         DecreaseQuantityForProductName(trolley.Quantities, productQuantity.Name, 1);
                     }
                 }
