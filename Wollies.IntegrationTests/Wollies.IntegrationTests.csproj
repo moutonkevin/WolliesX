@@ -13,11 +13,12 @@
   <ItemGroup>
     <Content Include="appsettings.json">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.2.6" />
+    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.2.5" />
     <PackageReference Include="Microsoft.AspNetCore.TestHost" Version="2.2.0" />
     <PackageReference Include="nunit" Version="3.11.0" />
     <PackageReference Include="NUnit3TestAdapter" Version="3.11.0" />
@@ -26,6 +27,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Wollies.Api\Wollies.Api.csproj" />
+    <ProjectReference Include="..\Wollies.Contracts\Wollies.Contracts.csproj" />
   </ItemGroup>
 
   <ItemGroup>
