@@ -9,7 +9,7 @@ using Wollies.Contracts;
 using Wollies.Domain.Clients;
 using Wollies.Domain.Repositories;
 using Wollies.Domain.Services;
-using Wollies.Domain.Services.SortingStrategies;
+using Wollies.Domain.Services.Sorting;
 
 namespace Wollies.Api
 {
@@ -47,6 +47,8 @@ namespace Wollies.Api
             {
                 return RestService.For<IShopperHistoryApiClient>(Configuration["WolliesRootUrl"]);
             });
+
+            services.AddScoped<ITrolleyCalculatorService, TrolleyCalculatorService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -5,7 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Wollies.Contracts;
 using Wollies.Domain.Clients;
 
-namespace Wollies.Domain.Services.SortingStrategies
+namespace Wollies.Domain.Services.Sorting
 {
     public class RecommendedProductSortingService : IProductSortingOptionService
     {
@@ -26,6 +26,7 @@ namespace Wollies.Domain.Services.SortingStrategies
 
             var productsOrderedByPopularity = shopperHistory
                 .SelectMany(c => c.Products)
+                .Concat(products)
                 .GroupBy(g => g.Name)
                 .Select(s => new
                 {

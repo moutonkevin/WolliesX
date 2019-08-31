@@ -3,7 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Wollies.Contracts;
 
-namespace Wollies.Domain.Services.SortingStrategies
+namespace Wollies.Domain.Services.Sorting
 {
     public class HighPriceProductSortingService : IProductSortingOptionService
     {

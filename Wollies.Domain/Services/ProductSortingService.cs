@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Wollies.Contracts;
 using Wollies.Domain.Exceptions;
 using Wollies.Domain.Repositories;
-using Wollies.Domain.Services.SortingStrategies;
+using Wollies.Domain.Services.Sorting;
 
 namespace Wollies.Domain.Services
 {
