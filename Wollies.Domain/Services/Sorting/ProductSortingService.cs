@@ -3,8 +3,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Wollies.Contracts;
-using Wollies.Domain.ApiClients;
 using Wollies.Domain.Exceptions;
+using Wollies.Domain.Repositories;
 
 namespace Wollies.Domain.Services.Sorting
 {

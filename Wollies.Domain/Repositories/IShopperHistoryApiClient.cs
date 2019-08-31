@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Refit;
 using Wollies.Contracts;
 
-namespace Wollies.Domain.ApiClients
+namespace Wollies.Domain.Repositories
 {
     public interface IShopperHistoryApiClient
     {

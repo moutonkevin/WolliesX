@@ -5,7 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Refit;
 using Wollies.Contracts;
-using Wollies.Domain.ApiClients;
+using Wollies.Domain.Repositories;
 using Wollies.Domain.Services;
 using Wollies.Domain.Services.Sorting;
 
