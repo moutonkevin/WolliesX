@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Wollies.Contracts;
+using Wollies.Domain.Services;
 
 namespace Wollies.Api.Controllers
 {
@@ -7,17 +8,20 @@ namespace Wollies.Api.Controllers
     [ApiController]
     public class TrolleyController : ControllerBase
     {
-        public TrolleyController()
+        private readonly ITrolleyCalculatorService _calculatorService;
+
+        public TrolleyController(ITrolleyCalculatorService calculatorService)
         {
+            _calculatorService = calculatorService;
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("trolleyTotal")]
         public decimal GetTotal(Trolley trolley)
         {
+            var total = _calculatorService.CalculateLowestTotal(trolley);
 
-
-            return 0;
+            return total;
         }
     }
 }
